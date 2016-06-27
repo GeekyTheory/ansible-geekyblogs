@@ -1,0 +1,4 @@
+---
+
+- name: Geeky Blogs server playbook
+  hosts: server 
