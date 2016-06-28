@@ -1,4 +1,13 @@
 ---
 
 - name: Geeky Blogs server playbook
-  hosts: server 
+  hosts: server
+  pre_tasks:
+    - name: Avoid using IPv6 in apt-get
+      lineinfile: dest=/etc/gai.conf
+      regexp: '^precedence ::ffff:0:0/96  100'
+      insertafter: '^#precedence ::ffff:0:0/96  100'
+      line: 'precedence ::ffff:0:0/96  100'
+      state: present
+    - name: Update repositories
+      apt: update_cache=yes
