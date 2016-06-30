@@ -1,0 +1,5 @@
+---
+
+- name: Set system's hostname
+  hostname: name={{ hostname }}
+  when: hostname is defined

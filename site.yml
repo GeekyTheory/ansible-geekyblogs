@@ -11,3 +11,5 @@
                   state=present
     - name: Update repositories
       apt: update_cache=yes
+  roles:
+    - hostname
